@@ -20,10 +20,10 @@ Rails.application.initialize!
 require 'sendgrid-ruby'
 include SendGrid
 
-from = Email.new(email: 'test@example.com')
-to = Email.new(email: 'test@example.com')
-subject = 'Sending with SendGrid is Fun'
-content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
+from = Email.new(email: 'ecristonprenom@yopmail.com')
+to = Email.new(email: 'taniana@yopmail.com')
+subject = 'Bienvenue chez nous !'
+content = Content.new(type: 'text/plain', value: 'Votre inscription à bien été validé')
 mail = Mail.new(from, subject, to, content)
 
 sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
