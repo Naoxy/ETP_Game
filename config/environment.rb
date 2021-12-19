@@ -21,7 +21,7 @@ require 'sendgrid-ruby'
 include SendGrid
 
 from = Email.new(email: 'ecristonprenom@yopmail.com')
-to = Email.new(email: 'taniana@yopmail.com')
+to = Email.new(email:  @user.email)
 subject = 'Bienvenue chez nous !'
 content = Content.new(type: 'text/plain', value: 'Votre inscription à bien été validé')
 mail = Mail.new(from, subject, to, content)
