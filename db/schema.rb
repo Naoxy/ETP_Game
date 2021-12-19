@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_12_19_062102) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_carts_on_item_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -66,5 +68,6 @@ ActiveRecord::Schema.define(version: 2021_12_19_062102) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carts", "items"
   add_foreign_key "carts", "users"
 end
