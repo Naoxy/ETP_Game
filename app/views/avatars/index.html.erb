@@ -1,0 +1,13 @@
+<div class="container text-center my-5" style="height:60vh">
+<h2>Ecris ton prénom.</h2>
+
+      <%= image_tag "logo.png", :alt => "logo",class: "m-5" %>
+
+<h2  class=" bg-warning p-3 rounded">CHOISISSEZ les GIFS et accéder à tous les JEUX <br>
+ Pour 10 € seulement!<h2>
+
+<%= button_to "Passer commande", checkout_create_path(total: 10.00), class: "m-5 btn btn-primary", remote: true %>
+<p>cliquer sur le bouton "passer commande"</p>
+</div>
+
+  <%= render 'layouts/footer'%>

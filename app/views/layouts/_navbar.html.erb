@@ -1,0 +1,57 @@
+
+
+
+
+<header class="site-navbar site-navbar-target color-b2 py-1  " role="banner">
+
+    <div class="container d-flex justify-content-around ">
+        <div class="site-logo  ">
+          <a href=<%= root_path %>><%= image_tag "logo.png", :alt => "logo",style: "",class: " " %><span class="text-danger">.</span></a>
+        </div>           
+     
+
+          <div class=" d-flex align-items-center my-1 menu-wrap" >
+            <nav class="site-navigation text-left mr-auto  d-lg-block " role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto  ">
+
+                <li><a href="<%= root_path %>" class="nav-link ">Acceuil</a></li>
+                <li><a href="<%= games_path%>" class="nav-link ">Jeux</a></li>
+                <li><a href="<%= edit_user_registration_path%>" class="nav-link">Profile</a></li>
+                
+                <% if user_signed_in? %>
+                  <%= link_to destroy_user_session_path, method: 'DELETE', class:" btn btn-teal py-1 px-2 " do %>
+                    <div>Se déconnecter</div>
+                  <% end %>
+                    <% #if session[:premium] == "succeeded" %>
+                     <% if current_user.is_premium == true %>     
+                      <li class="nav-item"><a class=" btn-warning  py-1 px-2 btn" href="<%= carts_path%>" class="nav-link">GIFS</a></li>
+                    <% else %>   
+                      <li class="nav-item"><a class=" btn-warning  py-1 px-2 btn" href="<%= avatars_path%>" class="nav-link">Premium</a></li>
+                    <% end %>
+
+                 
+                <% else %>              
+                <li class="nav-item"><a class="btn-primary py-1 px-2 btn "  href="<%= new_user_session_path %>">Se connecter</a></li>
+                <% end %>
+
+                
+
+
+              
+
+              </ul>
+            </nav>
+        </div>
+      </div>
+
+
+
+
+     
+
+    </header>
+
+
+    
+              
+

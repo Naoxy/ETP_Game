@@ -1,0 +1,4 @@
+fr:
+  hello: "Bonjour, Monde"
+  user_password: "Mot de passe"
+  user_password_confirmation: "Confirmez le mot de passe"

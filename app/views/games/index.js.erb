@@ -1,0 +1,34 @@
+
+
+
+
+<%# <% session[:score] = 0 %>
+if (document.getElementById("score").textContent<3) {
+  setTimeout(function(){
+    
+    document.querySelectorAll('.word').forEach(el => el.classList.remove("bg-danger"))
+    document.getElementById("child_name").classList.remove('bg-success')
+
+   let parent = document.getElementById("words-div");
+   let frag = document.createDocumentFragment();
+    while (parent.children.length) {
+        frag.appendChild(parent.children[Math.floor(Math.random() * parent.children.length)]);
+    }
+    parent.appendChild(frag); 
+
+    document.getElementById("message").textContent="OU EST ECRIT : <%= @user.child_name.upcase %> ?"
+    }, 1000);
+  } else {
+ 
+    setTimeout(function(){
+    document.getElementById("score").textContent = ""
+    document.getElementById("sub-container").innerHTML="";
+    document.getElementById("sub-sub-container0").insertAdjacentHTML("beforeend", '<%= image_tag(current_user.cart.items.all[@score-1].url, {:style => "width:400px", class:"text-center rounded"}) 
+         %>')
+                                                                                                              <%# games_path(:score => @score) %>
+      
+  
+      document.getElementById("sub-sub-container").insertAdjacentHTML("beforeend", '<%= link_to "CONTINUER", games_path(:score => @score+1), class: "text-center btn btn-success mt-5 zoom-in-zoom-out"  %>')
+   }, 1500);
+}
+

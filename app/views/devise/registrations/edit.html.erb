@@ -1,0 +1,74 @@
+<div class="limiter">
+		<div class="container-login100">
+    			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+			
+					<span class="login100-form-title p-b-59">
+						Editer le profil</span>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+			<span class="focus-input100"></span>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>En attente d'une confirmation de: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+      <span class="focus-input100"></span>
+    <label for="user_password_confirmation">Confirmer le mot de passe</label><i> (laisser en blanc si vous ne souhaitez pas changer)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      
+      <em><%= @minimum_password_length %> caractères minimum</em>
+      <br />
+    <% end %>
+  </div>
+  </div>
+
+  <div class="field">
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+      <span class="focus-input100"></span>
+    <label for="user_password_confirmation">Confirmer le nouveau mot de passe</label><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+  </div>
+
+  <div class="field">
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+      <span class="focus-input100"></span>
+   <label for="user_current_password">Mot de passe actuel</label> <i>(Nous avons besoin de votre mot de passe actuel pour confirmer</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+  </div>
+
+  <div class="actions">
+  <div class="container-btn btn btn-primary">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+    <%= f.submit "Mettre à jour", class: 'remove-submit-btn-style' %>
+  </div>
+  </div>
+  </div>
+
+   <div class="img-kid col-md-6 ml-auto ">
+            <%= image_tag "kid_transparent.png", :alt => "kid image",style: "height: 800px",class: " " %>
+            </div>
+            </div>
+<% end %>
+
+
+ <div class="container-btn btn btn-danger mt-3 ml-3 mb-3 mr-3">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+ <%= button_to "Supprimer le compte", registration_path(resource_name), class: 'remove-submit-btn-style', data: { confirm: "Vous êtes sûr??" }, method: :delete %>
+</div>
+<%= link_to "Retour en arrière", :back %>
+

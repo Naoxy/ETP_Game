@@ -1,0 +1,36 @@
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+			
+					<span class="login100-form-title p-b-59">
+              Mot de passe oublié</span>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="field">
+    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+      <span class="focus-input100"></span>
+  <%= render "devise/shared/error_messages", resource: resource %>
+</div>
+</div>
+
+  <div class="field">
+   <div class="wrap-input100 validate-input" data-validate = "Password is required">
+      <span class="focus-input100"></span>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  </div>
+
+  <div class="actions">
+  <div class="container-btn btn btn-primary">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+    <%= f.submit "Envoyer les instructions",class: 'remove-submit-btn-style' %>
+  </div>
+  </div>
+  </div>
+  <div class="img-kid col-md-6 ml-auto ">
+            <%= image_tag "kid_transparent.png", :alt => "kid image",style: "height: 800px",class: "" %>
+<% end %>
+
+<%= render "devise/shared/links" %>

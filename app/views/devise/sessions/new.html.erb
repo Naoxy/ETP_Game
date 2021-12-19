@@ -1,0 +1,54 @@
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+			
+					<span class="login100-form-title p-b-59">
+						Se connecter
+					</span>
+
+
+
+            
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+      <span class="focus-input100"></span>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  </div>
+
+  <div class="field">
+    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+      <span class="focus-input100"></span>
+    <label for="user_password">Mot de passe</label><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <label for="user_remember_me">Se souvenir</label>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <div class="container-btn btn btn-primary  mb-3">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+    <%= f.submit "Connexion",class: 'remove-submit-btn-style'  %>
+  </div>
+  </div>
+  
+
+<div>
+<%= render "devise/shared/links" %>
+ </div>
+ </div>
+<div class="img-kid col-md-6 ml-auto ">
+            <%= image_tag "kid_transparent.png", :alt => "kid image",style: "height: 800px",class: "" %>
+<% end %>
+
+ 
