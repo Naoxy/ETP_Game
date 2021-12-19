@@ -4,6 +4,7 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
+
 # ActionMailer::Base.smtp_settings = {
 #   :user_name => ENV['SENDGRID_LOGIN'],
 #   :password => ENV['SENDGRID_PWD'],
@@ -19,9 +20,9 @@ Rails.application.initialize!
 require 'sendgrid-ruby'
 include SendGrid
 
-from = Email.new(email: 'ecristonprenom@yopmail.com')
-to = Email.new(email: '#{@user.email}')
-subject = 'Bienvenue chez nous !'
+from = Email.new(email: 'test@example.com')
+to = Email.new(email: 'test@example.com')
+subject = 'Sending with SendGrid is Fun'
 content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
 mail = Mail.new(from, subject, to, content)
 
