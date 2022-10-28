@@ -7,7 +7,9 @@ bundle install
 Projet Final de The Hacking Project
  
 
+Repo d'origin https://github.com/profprogrammeur/ECRIS_TON_PRENOM
 
+Auteur => Antoine/Hugo/Paul
 
 
 
